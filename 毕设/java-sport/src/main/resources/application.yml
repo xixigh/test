@@ -1,0 +1,38 @@
+#设置端口号
+server:
+  port: 8888
+
+#配置项目名称
+spring:
+  application:
+    name: food nutrition table
+  #配置数据库
+  datasource:
+    username: root
+    password: 123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://172.17.0.1:3306/healthy?useUnicode=true&&characterEncoding=UTF-8&&serverTimezone=UTC
+
+#配置mybatis
+mybatis:
+  #mapper接口找的xml文件
+  mapper-locations: classpath:mappers/*.xml
+  #扫描的实体类
+  type-aliases-package: com.xixi.domain
+  #mybatis内置的配置
+  configuration:
+    #sql日志打印
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    #开启驼峰命名
+    map-underscore-to-camel-case: true
+
+#jwt配置
+jwt:
+  #请求头
+  tokenHeader: Authorization
+  #签名加盐（秘钥）
+  secret: xixi520
+  #jwt过期时间
+  expiration: 1800
+  #token头部
+  tokenHead: 'Bearer'
